@@ -1,16 +1,9 @@
-import React from 'react';
-import './App.css';
-import Calculator from './Calculator'; // Import the Calculator component
+import { render, screen } from '@testing-library/react';
+import App from './App';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        {/* Your other content goes here */}
-        <Calculator /> {/* Add the Calculator component here */}
-      </header>
-    </div>
-  );
-}
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
 
-export default App;
